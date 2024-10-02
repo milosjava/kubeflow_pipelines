@@ -196,8 +196,12 @@ func (c *workflowCompiler) containerExecutorTask(name string, inputs containerEx
 // and resources etc, that are different for different tasks.
 func (c *workflowCompiler) addContainerExecutorTemplate(refName string) string {
 	// container template is parent of container implementation template
-	nameContainerExecutor := "system-container-executor"
-	nameContainerImpl := "system-container-impl"
+	//nameContainerExecutor := "system-container-executor"
+	//nameContainerImpl := "system-container-impl"
+
+	nameContainerExecutor := "system-container-executor-" + refName
+	nameContainerImpl := "system-container-impl-" + refName
+
 	_, ok := c.templates[nameContainerExecutor]
 	if ok {
 		return nameContainerExecutor
